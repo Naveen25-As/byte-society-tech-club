@@ -172,8 +172,7 @@ Screenshots of both versions can be added here.
 
 ### Claude Version
 
-> Add a screenshot of the Claude website here.
-
+image.png
 ### Windsurf Version
 
 > Add a screenshot of the Windsurf website here.
