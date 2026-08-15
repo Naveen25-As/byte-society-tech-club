@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Byte Society — Tech Club</title>
+  <meta name="description" content="Byte Society is our college's student-run tech club — workshops, hackathons, projects, and a community of builders." />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Fonts: JetBrains Mono (display/code) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="#top">
+          <span class="brand-bracket">&lt;/&gt;</span> Byte<span class="text-accent-cyan">Society</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+          aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item"><a class="nav-link" href="#about"><span class="tab-dot dot-purple"></span>about</a></li>
+            <li class="nav-item"><a class="nav-link" href="#events"><span class="tab-dot dot-green"></span>events</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects"><span class="tab-dot dot-amber"></span>projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#team"><span class="tab-dot dot-cyan"></span>team</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact"><span class="tab-dot dot-purple"></span>contact</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+              <a class="btn btn-terminal-sm" href="#contact">$ join --now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6">
+            <p class="eyebrow"><span class="tab-dot dot-green pulse"></span>// est. 2019 · open to all majors</p>
+            <h1 class="hero-title">
+              We build things<br>
+              that <span class="text-accent-cyan">didn't exist</span><br>
+              last semester.
+            </h1>
+            <p class="hero-sub">
+              Byte Society is our campus's student-run technology club — a place to ship real
+              projects, learn from peers, and prep for the industry over pizza and bad coffee.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="#contact" class="btn btn-terminal btn-lg">Join the club <i class="bi bi-arrow-right ms-1"></i></a>
+              <a href="#projects" class="btn btn-outline-terminal btn-lg">View projects</a>
+            </div>
+            <div class="hero-stats d-flex flex-wrap gap-4 mt-5">
+              <div>
+                <span class="stat-num" data-count="180">0</span>
+                <span class="stat-label">members</span>
+              </div>
+              <div>
+                <span class="stat-num" data-count="42">0</span>
+                <span class="stat-label">projects shipped</span>
+              </div>
+              <div>
+                <span class="stat-num" data-count="12">0</span>
+                <span class="stat-label">events / year</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="terminal-window" aria-hidden="false" role="img" aria-label="Terminal window showing a simulated login sequence for Byte Society">
+              <div class="terminal-titlebar">
+                <span class="t-dot t-red"></span><span class="t-dot t-yellow"></span><span class="t-dot t-green"></span>
+                <span class="terminal-title">guest@byte-society: ~</span>
+              </div>
+              <div class="terminal-body">
+                <p class="line"><span class="prompt">$</span> whoami</p>
+                <p class="line out" id="typedLine">&nbsp;</p>
+                <p class="line line-cursor"><span class="prompt">$</span> <span class="cursor" id="blinkCursor">&nbsp;</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow">// about-us.md</p>
+        <div class="row gy-5 align-items-start">
+          <div class="col-lg-6">
+            <h2 class="section-title">A club run by students, for students who like building things.</h2>
+            <p class="section-text">
+              Byte Society started as a group of five friends debugging assignments in the library
+              basement. Today we're one of the largest student orgs on campus — but the mission
+              hasn't changed: give students a low-pressure, high-momentum place to actually build,
+              ship, and break things together.
+            </p>
+            <p class="section-text">
+              No prerequisites, no "expert-only" gatekeeping. First-years learning their first
+              <code>git commit</code> sit next to seniors shipping production code. We run weekly
+              build sessions, invite engineers from local companies to give talks, and send teams
+              to regional hackathons every semester.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <span class="pill pill-cyan">Open source</span>
+              <span class="pill pill-green">Peer mentorship</span>
+              <span class="pill pill-purple">Hackathon prep</span>
+              <span class="pill pill-amber">Industry talks</span>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="code-card">
+              <div class="code-card-header">
+                <span class="tab-dot dot-cyan"></span> club.config.json
+              </div>
+              <pre class="code-block"><code><span class="tok-punc">{</span>
+  <span class="tok-key">"founded"</span><span class="tok-punc">:</span> <span class="tok-num">2019</span><span class="tok-punc">,</span>
+  <span class="tok-key">"meets"</span><span class="tok-punc">:</span> <span class="tok-str">"Thursdays, 6:30 PM"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"location"</span><span class="tok-punc">:</span> <span class="tok-str">"Engineering Hall, Rm 214"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"dues"</span><span class="tok-punc">:</span> <span class="tok-str">"$0 — always free"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"tracks"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span>
+    <span class="tok-str">"web"</span><span class="tok-punc">,</span> <span class="tok-str">"ai/ml"</span><span class="tok-punc">,</span> <span class="tok-str">"embedded"</span><span class="tok-punc">,</span> <span class="tok-str">"design"</span>
+  <span class="tok-punc">]</span><span class="tok-punc">,</span>
+  <span class="tok-key">"vibe"</span><span class="tok-punc">:</span> <span class="tok-str">"low ego, high output"</span>
+<span class="tok-punc">}</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EVENTS ===================== -->
+    <section class="section section-alt" id="events">
+      <div class="container">
+        <p class="eyebrow">// upcoming-events.list</p>
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
+          <h2 class="section-title mb-0">What's next on the calendar</h2>
+          <p class="section-text mb-0">All events are free and open to every student.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Event 1 -->
+          <div class="col-md-6 col-lg-3">
+            <article class="event-card">
+              <div class="event-date">
+                <span class="event-day">02</span>
+                <span class="event-month">SEP</span>
+              </div>
+              <span class="pill pill-green mb-2">Workshop</span>
+              <h3 class="event-title">Git &amp; GitHub Bootcamp</h3>
+              <p class="event-text">Branches, merge conflicts, and pull requests — from first commit to first PR review.</p>
+              <p class="event-meta"><i class="bi bi-clock"></i> 6:30 PM &nbsp;·&nbsp; <i class="bi bi-geo-alt"></i> Eng Hall 214</p>
+            </article>
+          </div>
+          <!-- Event 2 -->
+          <div class="col-md-6 col-lg-3">
+            <article class="event-card">
+              <div class="event-date">
+                <span class="event-day">20</span>
+                <span class="event-month">SEP</span>
+              </div>
+              <span class="pill pill-purple mb-2">Hackathon</span>
+              <h3 class="event-title">HackNight: 24hr Build</h3>
+              <p class="event-text">Form a team, pick a problem, ship a working prototype by sunrise. Prizes for top 3.</p>
+              <p class="event-meta"><i class="bi bi-clock"></i> 6:00 PM &nbsp;·&nbsp; <i class="bi bi-geo-alt"></i> Innovation Lab</p>
+            </article>
+          </div>
+          <!-- Event 3 -->
+          <div class="col-md-6 col-lg-3">
+            <article class="event-card">
+              <div class="event-date">
+                <span class="event-day">08</span>
+                <span class="event-month">OCT</span>
+              </div>
+              <span class="pill pill-cyan mb-2">Tech Talk</span>
+              <h3 class="event-title">From Campus to FAANG</h3>
+              <p class="event-text">Alumni engineers on internships, interviews, and what actually matters on a resume.</p>
+              <p class="event-meta"><i class="bi bi-clock"></i> 7:00 PM &nbsp;·&nbsp; <i class="bi bi-geo-alt"></i> Auditorium B</p>
+            </article>
+          </div>
+          <!-- Event 4 -->
+          <div class="col-md-6 col-lg-3">
+            <article class="event-card">
+              <div class="event-date">
+                <span class="event-day">24</span>
+                <span class="event-month">OCT</span>
+              </div>
+              <span class="pill pill-amber mb-2">Workshop</span>
+              <h3 class="event-title">Intro to Neural Networks</h3>
+              <p class="event-text">Build a digit-recognition model from scratch in Python. Laptops provided if needed.</p>
+              <p class="event-meta"><i class="bi bi-clock"></i> 6:30 PM &nbsp;·&nbsp; <i class="bi bi-geo-alt"></i> Eng Hall 214</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow">// projects.repo</p>
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
+          <h2 class="section-title mb-0">Things members shipped</h2>
+          <p class="section-text mb-0">Built in workshops, hack nights, and late study sessions.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <article class="project-card">
+              <div class="project-top">
+                <i class="bi bi-people-fill project-icon icon-cyan"></i>
+                <a href="#" class="project-link" aria-label="View CampusConnect on GitHub"><i class="bi bi-github"></i></a>
+              </div>
+              <h3 class="project-title">CampusConnect</h3>
+              <p class="project-text">A study-group matcher that pairs students by course, schedule, and learning style.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">PostgreSQL</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="project-card">
+              <div class="project-top">
+                <i class="bi bi-tree-fill project-icon icon-green"></i>
+                <a href="#" class="project-link" aria-label="View EcoTrack on GitHub"><i class="bi bi-github"></i></a>
+              </div>
+              <h3 class="project-title">EcoTrack</h3>
+              <p class="project-text">Dashboard tracking campus energy and water usage in real time, built with the facilities team.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-pill">Vue</span>
+                <span class="tech-pill">Flask</span>
+                <span class="tech-pill">D3.js</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="project-card">
+              <div class="project-top">
+                <i class="bi bi-chat-dots-fill project-icon icon-purple"></i>
+                <a href="#" class="project-link" aria-label="View StudyBuddy AI on GitHub"><i class="bi bi-github"></i></a>
+              </div>
+              <h3 class="project-title">StudyBuddy AI</h3>
+              <p class="project-text">A retrieval-based chatbot trained on course syllabi to answer late-night homework questions.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">FastAPI</span>
+                <span class="tech-pill">LangChain</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="project-card">
+              <div class="project-top">
+                <i class="bi bi-camera-video-fill project-icon icon-amber"></i>
+                <a href="#" class="project-link" aria-label="View SmartAttendance on GitHub"><i class="bi bi-github"></i></a>
+              </div>
+              <h3 class="project-title">SmartAttendance</h3>
+              <p class="project-text">QR-based attendance system for club events with a live check-in dashboard for organizers.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-pill">Next.js</span>
+                <span class="tech-pill">Supabase</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="project-card">
+              <div class="project-top">
+                <i class="bi bi-trophy-fill project-icon icon-cyan"></i>
+                <a href="#" class="project-link" aria-label="View HackPortal on GitHub"><i class="bi bi-github"></i></a>
+              </div>
+              <h3 class="project-title">HackPortal</h3>
+              <p class="project-text">Registration, team formation, and judging platform we now use to run our own hackathons.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Express</span>
+                <span class="tech-pill">MongoDB</span>
+              </div>
+            </article>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <article class="project-card">
+              <div class="project-top">
+                <i class="bi bi-code-slash project-icon icon-green"></i>
+                <a href="#" class="project-link" aria-label="View CodeMentor on GitHub"><i class="bi bi-github"></i></a>
+              </div>
+              <h3 class="project-title">CodeMentor Bot</h3>
+              <p class="project-text">A GitHub Action that leaves beginner-friendly review comments on first-time contributors' PRs.</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">GitHub API</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TEAM ===================== -->
+    <section class="section section-alt" id="team">
+      <div class="container">
+        <p class="eyebrow">// contributors.md</p>
+        <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
+          <h2 class="section-title mb-0">The people behind it</h2>
+          <p class="section-text mb-0">Elected each spring by club members.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-3">
+            <article class="team-card text-center">
+              <div class="avatar avatar-cyan">AK</div>
+              <h3 class="team-name">Aditi Kapoor</h3>
+              <p class="team-role">President</p>
+              <p class="team-focus">Systems &amp; backend</p>
+              <div class="team-social">
+                <a href="#" aria-label="Aditi's GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Aditi's LinkedIn"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="team-card text-center">
+              <div class="avatar avatar-purple">RS</div>
+              <h3 class="team-name">Rohan Shah</h3>
+              <p class="team-role">Vice President</p>
+              <p class="team-focus">AI / ML</p>
+              <div class="team-social">
+                <a href="#" aria-label="Rohan's GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Rohan's LinkedIn"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="team-card text-center">
+              <div class="avatar avatar-green">MN</div>
+              <h3 class="team-name">Meera Nair</h3>
+              <p class="team-role">Technical Lead</p>
+              <p class="team-focus">Full-stack &amp; DevOps</p>
+              <div class="team-social">
+                <a href="#" aria-label="Meera's GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Meera's LinkedIn"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <article class="team-card text-center">
+              <div class="avatar avatar-amber">DV</div>
+              <h3 class="team-name">Dev Verma</h3>
+              <p class="team-role">Events Coordinator</p>
+              <p class="team-focus">Hackathons &amp; outreach</p>
+              <div class="team-social">
+                <a href="#" aria-label="Dev's GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="Dev's LinkedIn"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="eyebrow">// contact.sh</p>
+        <div class="row g-5">
+          <div class="col-lg-5">
+            <h2 class="section-title">Say hello, or just show up.</h2>
+            <p class="section-text">
+              Got a project idea, a question about joining, or want a company to speak at a
+              meeting? Send a message — a team member replies within a couple of days.
+            </p>
+            <ul class="contact-list list-unstyled mt-4">
+              <li><i class="bi bi-envelope-fill"></i> hello@bytesociety.club</li>
+              <li><i class="bi bi-geo-alt-fill"></i> Engineering Hall, Room 214</li>
+              <li><i class="bi bi-clock-fill"></i> Thursdays, 6:30 PM</li>
+            </ul>
+            <div class="d-flex gap-3 mt-4 fs-4">
+              <a href="#" aria-label="Byte Society on Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="Byte Society on Discord"><i class="bi bi-discord"></i></a>
+              <a href="#" aria-label="Byte Society on GitHub"><i class="bi bi-github"></i></a>
+              <a href="#" aria-label="Byte Society on LinkedIn"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <form class="contact-form needs-validation" id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">$ name</label>
+                  <input type="text" class="form-control" id="name" required placeholder="Jane Doe">
+                  <div class="invalid-feedback">Tell us your name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">$ email</label>
+                  <input type="email" class="form-control" id="email" required placeholder="jane@university.edu">
+                  <div class="invalid-feedback">Enter a valid email.</div>
+                </div>
+                <div class="col-12">
+                  <label for="subject" class="form-label">$ subject</label>
+                  <select class="form-select" id="subject" required>
+                    <option value="" selected disabled>Choose one…</option>
+                    <option>Joining the club</option>
+                    <option>Project collaboration</option>
+                    <option>Speaking / sponsorship</option>
+                    <option>Something else</option>
+                  </select>
+                  <div class="invalid-feedback">Pick a subject.</div>
+                </div>
+                <div class="col-12">
+                  <label for="message" class="form-label">$ message</label>
+                  <textarea class="form-control" id="message" rows="5" required placeholder="Type your message…"></textarea>
+                  <div class="invalid-feedback">A message would help.</div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-terminal btn-lg" type="submit">Send message <i class="bi bi-send ms-1"></i></button>
+                  <span class="form-success ms-3 d-none" id="formSuccess"><i class="bi bi-check-circle-fill"></i> Message sent — we'll be in touch!</span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <a class="navbar-brand" href="#top"><span class="brand-bracket">&lt;/&gt;</span> Byte<span class="text-accent-cyan">Society</span></a>
+          <p class="footer-text mt-3">The student-run tech club building, breaking, and shipping since 2019.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#team">Team</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#">Join form</a></li>
+            <li><a href="#">Meeting notes</a></li>
+            <li><a href="#">Code of conduct</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4 class="footer-heading">Stay in the loop</h4>
+          <form class="d-flex gap-2 mt-2" onsubmit="return false;">
+            <input type="email" class="form-control" placeholder="you@university.edu" aria-label="Email for newsletter">
+            <button class="btn btn-terminal-sm" type="submit">Sign up</button>
+          </form>
+        </div>
+      </div>
+      <hr class="footer-rule">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="footer-copy mb-0">© 2026 Byte Society. Built by members, for members.</p>
+        <button id="backToTop" class="btn-back-top" aria-label="Back to top">
+          <i class="bi bi-arrow-up"></i> top
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
