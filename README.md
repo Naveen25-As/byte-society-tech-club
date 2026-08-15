@@ -171,9 +171,9 @@ The two versions can be compared based on:
 Screenshots of both versions can be added here.
 
 ### Claude Version
-
-image.png
+Screenshot 2026-08-15 091849.png
 ### Windsurf Version
+image.png
 
 > Add a screenshot of the Windsurf website here.
 
