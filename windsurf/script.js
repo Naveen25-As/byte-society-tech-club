@@ -1,3 +1,12 @@
+// =========================================================
+// API CONFIG
+// When served by Express (port 5000), use relative URLs (same origin).
+// When using Live Server (port 5500), point to the backend on port 5000.
+// =========================================================
+const API_BASE_URL = (window.location.port === '5000' || window.location.port === '')
+    ? ''
+    : 'http://localhost:5000';
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -32,27 +41,71 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Contact form handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    // Simple validation
-    if (name && email && subject && message) {
-        // Show success message
-        alert('Thank you for your message! We will get back to you soon.');
-        
-        // Reset form
-        this.reset();
-    } else {
-        alert('Please fill in all fields.');
-    }
-});
+// Contact form — submit to backend API
+const contactForm = document.getElementById('contactForm');
+const contactAlert = document.getElementById('contactAlert');
+const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+
+function showContactAlert(message, type) {
+    if (!contactAlert) return;
+    contactAlert.textContent = message;
+    contactAlert.className = `alert alert-${type}`;
+    contactAlert.classList.remove('d-none');
+}
+
+function hideContactAlert() {
+    if (!contactAlert) return;
+    contactAlert.classList.add('d-none');
+}
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        hideContactAlert();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !subject || !message) {
+            showContactAlert('Please fill in all fields.', 'warning');
+            return;
+        }
+
+        contactSubmitBtn.disabled = true;
+        contactSubmitBtn.textContent = 'Sending...';
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/contacts`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, subject, message }),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                showContactAlert(result.message || 'Failed to send message.', 'danger');
+                return;
+            }
+
+            showContactAlert(result.message, 'success');
+            contactForm.reset();
+
+            setTimeout(hideContactAlert, 6000);
+        } catch (error) {
+            console.error('Contact request failed:', error);
+            showContactAlert(
+                'Could not reach the server. Make sure the backend is running.',
+                'danger'
+            );
+        } finally {
+            contactSubmitBtn.disabled = false;
+            contactSubmitBtn.textContent = 'Send Message';
+        }
+    });
+}
 
 // Add scroll animation to elements
 const observerOptions = {
@@ -97,13 +150,106 @@ window.addEventListener('scroll', function() {
     });
 });
 
-// Event registration button handling
+// Event registration — open modal and submit to backend API
+const registrationModalEl = document.getElementById('registrationModal');
+const registrationForm = document.getElementById('registrationForm');
+const registrationAlert = document.getElementById('registrationAlert');
+const registrationSubmitBtn = document.getElementById('registrationSubmitBtn');
+const registrationEventNameDisplay = document.getElementById('registrationEventName');
+const regEventNameInput = document.getElementById('regEventName');
+
+let registrationModal;
+
+if (registrationModalEl) {
+    registrationModal = new bootstrap.Modal(registrationModalEl);
+}
+
+function showRegistrationAlert(message, type) {
+    if (!registrationAlert) return;
+
+    registrationAlert.textContent = message;
+    registrationAlert.className = `alert alert-${type}`;
+    registrationAlert.classList.remove('d-none');
+}
+
+function hideRegistrationAlert() {
+    if (!registrationAlert) return;
+    registrationAlert.classList.add('d-none');
+}
+
+function openRegistrationModal(eventTitle) {
+    hideRegistrationAlert();
+    registrationForm.classList.remove('was-validated');
+    registrationForm.reset();
+
+    registrationEventNameDisplay.textContent = eventTitle;
+    regEventNameInput.value = eventTitle;
+
+    registrationModal.show();
+}
+
 document.querySelectorAll('.event-card .btn').forEach(button => {
     button.addEventListener('click', function() {
         const eventTitle = this.closest('.card-body').querySelector('.card-title').textContent;
-        alert(`Registration for "${eventTitle}" will open soon! Stay tuned for updates.`);
+        openRegistrationModal(eventTitle);
     });
 });
+
+if (registrationForm) {
+    registrationForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        hideRegistrationAlert();
+
+        if (!registrationForm.checkValidity()) {
+            registrationForm.classList.add('was-validated');
+            return;
+        }
+
+        const payload = {
+            name: document.getElementById('regName').value.trim(),
+            email: document.getElementById('regEmail').value.trim(),
+            eventName: regEventNameInput.value,
+        };
+
+        registrationSubmitBtn.disabled = true;
+        registrationSubmitBtn.textContent = 'Submitting...';
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/registrations`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                const errorMessage = result.message || 'Registration failed. Please try again.';
+                showRegistrationAlert(errorMessage, 'danger');
+                return;
+            }
+
+            showRegistrationAlert(result.message || 'Registration successful!', 'success');
+            registrationForm.reset();
+            registrationForm.classList.remove('was-validated');
+
+            setTimeout(() => {
+                registrationModal.hide();
+            }, 1500);
+        } catch (error) {
+            console.error('Registration request failed:', error);
+            showRegistrationAlert(
+                'Could not reach the server. Make sure the backend is running on port 5000.',
+                'danger'
+            );
+        } finally {
+            registrationSubmitBtn.disabled = false;
+            registrationSubmitBtn.textContent = 'Submit Registration';
+        }
+    });
+}
 
 // Add loading animation
 window.addEventListener('load', function() {
